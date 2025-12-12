@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Property < ApplicationRecord
   module PropertyTypes
     APARTMENT = 'アパート'
