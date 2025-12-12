@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'csv'
+
 class PropertyImporter
   BATCH_SIZE = 1_000
 
@@ -21,7 +23,7 @@ class PropertyImporter
     upsert_data(data_to_upsert)
   end
 
-private
+  private
 
   def parse_row(row)
     {
@@ -38,6 +40,6 @@ private
   def upsert_data(data)
     return if data.empty?
 
-    Property.upsert_all(data)
+    Property.import(data, on_duplicate_key_update: :all, conflict_target: :unique_id)
   end
 end
