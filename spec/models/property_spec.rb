@@ -32,4 +32,23 @@ RSpec.describe Property, type: :model do
       include_examples 'room_number presence validation', property_type
     end
   end
+
+  describe '#property_type_in_japanese' do
+    subject { build(:property, property_type: property_type).property_type_in_japanese }
+
+    context 'when property_type is apartment' do
+      let(:property_type) { 'apartment' }
+      it { is_expected.to eq 'アパート' }
+    end
+
+    context 'when property_type is house' do
+      let(:property_type) { 'house' }
+      it { is_expected.to eq '一戸建て' }
+    end
+
+    context 'when property_type is condo' do
+      let(:property_type) { 'condo' }
+      it { is_expected.to eq 'マンション' }
+    end
+  end
 end
