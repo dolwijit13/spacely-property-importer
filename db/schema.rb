@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema[7.1].define(version: 2025_12_12_061937) do
   create_table "properties", charset: "utf8mb4", force: :cascade do |t|
-    t.string "unique_id", null: false
+    t.integer "unique_id", null: false
     t.string "name", null: false
     t.integer "room_number"
     t.string "address"
     t.integer "rent"
-    t.integer "size"
+    t.float "size"
     t.string "property_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
