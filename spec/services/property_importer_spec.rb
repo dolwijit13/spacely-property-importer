@@ -75,7 +75,9 @@ RSpec.describe PropertyImporter, type: :service do
       end
 
       context 'when the room number is missing for non house properties' do
-        let(:invalid_csv_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_room_number.csv') }
+        let(:invalid_csv_file_path) do
+          Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_room_number.csv')
+        end
         let(:invalid_csv_file) { fixture_file_upload(invalid_csv_file_path, 'text/csv') }
 
         subject { described_class.new(invalid_csv_file).call }
