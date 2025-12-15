@@ -13,8 +13,9 @@ class Property < ApplicationRecord
     condo: PropertyTypes::CONDO
   }
 
-  validates :unique_id, presence: true, uniqueness: true
+  validates :unique_id, presence: true
   validates :name, presence: true
+  validates :property_type, presence: true
   validates :room_number, presence: true, unless: :house?
 
   def property_type_in_japanese
