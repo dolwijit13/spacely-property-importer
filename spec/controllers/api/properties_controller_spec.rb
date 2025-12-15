@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Api::PropertiesController, type: :controller do
@@ -22,8 +24,8 @@ RSpec.describe Api::PropertiesController, type: :controller do
     it 'creates properties with correct attributes' do
       subject
 
-      property_1 = Property.find_by(unique_id: 1)
-      expect(property_1).to have_attributes(
+      property = Property.find_by(unique_id: 1)
+      expect(property).to have_attributes(
         name: 'シーサイドアパート',
         address: '福岡県福岡市94-31',
         room_number: 830,
