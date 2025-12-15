@@ -49,5 +49,42 @@ RSpec.describe PropertyImporter, type: :service do
         end
       end
     end
+
+    context 'with invalid CSV data' do
+      context 'when required headers are missing' do
+        let(:invalid_csv_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'properties_without_name.csv') }
+        let(:invalid_csv_file) { fixture_file_upload(invalid_csv_file_path, 'text/csv') }
+
+        subject { described_class.new(invalid_csv_file).call }
+
+        it 'does not import any properties' do
+          expect { subject }.not_to change(Property, :count)
+        end
+      end
+
+      context 'when required fields are missing' do
+        let(:invalid_csv_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_name.csv') }
+        let(:invalid_csv_file) { fixture_file_upload(invalid_csv_file_path, 'text/csv') }
+
+        subject { described_class.new(invalid_csv_file).call }
+
+        it 'skips invalid rows' do
+          expect { subject }.to change(Property, :count).by(2)
+          expect(Property.where(unique_id: 1).exists?).to be_falsey
+        end
+      end
+
+      context 'when the room number is missing for non house properties' do
+        let(:invalid_csv_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_room_number.csv') }
+        let(:invalid_csv_file) { fixture_file_upload(invalid_csv_file_path, 'text/csv') }
+
+        subject { described_class.new(invalid_csv_file).call }
+
+        it 'skips invalid rows' do
+          expect { subject }.to change(Property, :count).by(1)
+          expect(Property.where(unique_id: [1, 3]).exists?).to be_falsey
+        end
+      end
+    end
   end
 end
