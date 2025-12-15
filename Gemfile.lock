@@ -82,6 +82,10 @@ GEM
       mutex_m
       securerandom (>= 0.3)
       tzinfo (~> 2.0)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     base64 (0.3.0)
     benchmark (0.5.0)
     bigdecimal (3.3.1)
@@ -92,7 +96,7 @@ GEM
     cgi (0.5.1)
     coderay (1.1.3)
     concurrent-ruby (1.3.5)
-    connection_pool (3.0.2)
+    connection_pool (2.5.5)
     crass (1.0.6)
     date (3.5.1)
     debug (1.11.0)
@@ -102,6 +106,7 @@ GEM
     drb (2.2.3)
     erb (6.0.0)
     erubi (1.13.1)
+    execjs (2.10.0)
     factory_bot (6.5.6)
       activesupport (>= 6.1.0)
     factory_bot_rails (6.5.1)
@@ -159,6 +164,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
+    package_json (0.2.0)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -174,6 +180,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.4)
+    rack-proxy (0.7.7)
+      rack
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -217,6 +225,12 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
+    react-rails (3.2.0)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     reline (0.6.3)
       io-console (~> 0.5)
     rspec-core (3.13.6)
@@ -237,6 +251,13 @@ GEM
       rspec-support (~> 3.13)
     rspec-support (3.13.6)
     securerandom (0.4.1)
+    semantic_range (3.1.0)
+    shakapacker (9.4.0)
+      activesupport (>= 5.2)
+      package_json
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     shoulda-matchers (7.0.1)
       activesupport (>= 7.1)
     sprockets (4.2.2)
@@ -255,6 +276,7 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.9)
     thor (1.4.0)
+    tilt (2.6.1)
     timeout (0.5.0)
     tsort (0.2.0)
     turbo-rails (2.0.20)
@@ -281,6 +303,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-import (~> 2.2)
   bootsnap
+  connection_pool (< 3.0)
   debug
   factory_bot_rails (~> 6.5, >= 6.5.1)
   importmap-rails
@@ -289,7 +312,9 @@ DEPENDENCIES
   pry-rails (~> 0.3.11)
   puma (>= 5.0)
   rails (~> 7.1.6)
+  react-rails (= 3.2)
   rspec-rails (~> 7.0)
+  shakapacker (= 9.4)
   shoulda-matchers (~> 7.0, >= 7.0.1)
   sprockets-rails
   sqlite3 (>= 1.4)
