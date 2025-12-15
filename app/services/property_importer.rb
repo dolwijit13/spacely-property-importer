@@ -12,7 +12,10 @@ class PropertyImporter
   def call
     data_to_upsert = []
     CSV.foreach(@file, headers: true) do |row|
-      data_to_upsert << parse_row(row)
+      parsed_row = parse_row(row)
+      next unless validate_row(parsed_row)
+
+      data_to_upsert << parsed_row
 
       if data_to_upsert.size >= BATCH_SIZE
         upsert_data(data_to_upsert)
@@ -27,14 +30,18 @@ class PropertyImporter
 
   def parse_row(row)
     {
-      unique_id: row['ユニークID'].to_i,
+      unique_id: row['ユニークID'] ? row['ユニークID'].to_i : nil,
       name: row['物件名'],
-      room_number: row['部屋番号'].to_i,
+      room_number: row['部屋番号'] ? row['部屋番号'].to_i : nil,
       address: row['住所'],
-      rent: row['賃料'].to_i,
-      size: row['広さ'].to_f,
+      rent:  row['賃料'] ? row['賃料'].to_i : nil,
+      size: row['広さ'] ? row['広さ'].to_f : nil,
       property_type: row['建物の種類']
     }
+  end
+
+  def validate_row(parsed_row)
+    Property.new(parsed_row).valid?
   end
 
   def upsert_data(data)

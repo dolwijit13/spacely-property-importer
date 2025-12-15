@@ -8,8 +8,8 @@ RSpec.describe Property, type: :model do
     let(:property_type) { %i[house apartment condo].sample }
 
     it { should validate_presence_of(:unique_id) }
-    it { should validate_uniqueness_of(:unique_id) }
     it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:property_type) }
 
     context 'when property_type is house' do
       let(:property_type) { 'house' }
