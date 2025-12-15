@@ -4,7 +4,7 @@ module Api
   class PropertiesController < ApplicationController
     def import
       PropertyImporter.new(params[:file].path).call
-      render json: { message: 'Import successful' }, status: :ok
+      render json: { message: 'Import successful' }, status: :created
     end
   end
 end

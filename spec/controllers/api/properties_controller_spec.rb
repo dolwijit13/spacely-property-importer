@@ -10,7 +10,8 @@ RSpec.describe Api::PropertiesController, type: :controller do
     it 'returns a success message' do
       subject
 
-      expect(response).to have_http_status(:ok)
+      binding.pry
+      expect(response).to have_http_status(:created)
       expect(JSON.parse(response.body)).to eq({ 'message' => 'Import successful' })
     end
 
