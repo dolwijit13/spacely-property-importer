@@ -24,7 +24,7 @@ RSpec.describe PropertyImporter, type: :service do
           room_number: 830,
           rent: 188_000,
           size: 91.0,
-          property_type: 'apartment'
+          property_type: 'アパート'
         )
       end
 
@@ -44,7 +44,7 @@ RSpec.describe PropertyImporter, type: :service do
             room_number: 830,
             rent: 188_000,
             size: 91.0,
-            property_type: 'apartment'
+            property_type: 'アパート'
           )
         end
       end

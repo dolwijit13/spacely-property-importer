@@ -30,7 +30,7 @@ RSpec.describe Api::PropertiesController, type: :controller do
         room_number: 830,
         rent: 188_000,
         size: 91.0,
-        property_type: 'apartment'
+        property_type: 'アパート'
       )
     end
   end
