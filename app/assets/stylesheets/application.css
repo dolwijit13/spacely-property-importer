@@ -1,6 +1,6 @@
 :root {
   --primary-color: #007bff;
-  --secondary-color: #6c757d;
+  --secondary-color: #009dff;
   --success-color: #28a745;
   --info-color: #17a2b8;
   --warning-color: #ffc107;
@@ -76,6 +76,13 @@ body {
   font-size: 0.9rem;
 }
 
+.property-list-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .property-table {
   width: 100%;
   border-collapse: collapse;
@@ -145,4 +152,21 @@ body {
 .property-type.condo {
   background-color: var(--condo-bg);
   color: var(--condo-text);
+}
+
+.upload-button-input {
+  display: none;
+}
+
+.upload-button {
+  height: fit-content;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }

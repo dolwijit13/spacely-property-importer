@@ -1,5 +1,6 @@
 import React from "react"
 import Property from "./Property"
+import UploadButton from "./UploadButton"
 
 const PropertyList = (props) => {
   const { properties } = props
@@ -29,7 +30,10 @@ const PropertyList = (props) => {
 
   return (
     <div className="property-list-container">
-      <h1 className="property-list-title">Property List</h1>
+      <div className="property-list-header">
+        <h1 className="property-list-title">Property List</h1>
+        <UploadButton />
+      </div>
       <table className="property-table">
         <thead className="property-table-header">
           <tr>
