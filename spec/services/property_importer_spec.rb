@@ -4,7 +4,9 @@ require 'rails_helper'
 
 RSpec.describe PropertyImporter, type: :service do
   describe '#call' do
-    let(:csv_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'properties.csv') }
+    let(:csv_file_path) do
+      Rails.root.join('spec', 'fixtures', 'files', 'properties.csv')
+    end
     let(:csv_file) { fixture_file_upload(csv_file_path, 'text/csv') }
 
     subject { described_class.new(csv_file).call }
@@ -24,7 +26,7 @@ RSpec.describe PropertyImporter, type: :service do
           room_number: 830,
           rent: 188_000,
           size: 91.0,
-          property_type: 'apartment'
+          property_type: 'アパート'
         )
       end
 
@@ -44,7 +46,7 @@ RSpec.describe PropertyImporter, type: :service do
             room_number: 830,
             rent: 188_000,
             size: 91.0,
-            property_type: 'apartment'
+            property_type: 'アパート'
           )
         end
       end
@@ -52,7 +54,9 @@ RSpec.describe PropertyImporter, type: :service do
 
     context 'with invalid CSV data' do
       context 'when required headers are missing' do
-        let(:invalid_csv_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'properties_without_name.csv') }
+        let(:invalid_csv_file_path) do
+          Rails.root.join('spec', 'fixtures', 'files', 'properties_without_name.csv')
+        end
         let(:invalid_csv_file) { fixture_file_upload(invalid_csv_file_path, 'text/csv') }
 
         subject { described_class.new(invalid_csv_file).call }
@@ -63,7 +67,9 @@ RSpec.describe PropertyImporter, type: :service do
       end
 
       context 'when required fields are missing' do
-        let(:invalid_csv_file_path) { Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_name.csv') }
+        let(:invalid_csv_file_path) do
+          Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_name.csv')
+        end
         let(:invalid_csv_file) { fixture_file_upload(invalid_csv_file_path, 'text/csv') }
 
         subject { described_class.new(invalid_csv_file).call }

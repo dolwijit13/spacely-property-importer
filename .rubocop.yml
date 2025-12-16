@@ -1,0 +1,70 @@
+require:
+- rubocop-rails
+
+AllCops:
+  DisplayCopNames: true
+  ExtraDetails: true
+  TargetRubyVersion: 2.7
+  TargetRailsVersion: 5.2
+  UseCache: false
+  NewCops: disable
+  Exclude:
+    - db/**/*
+    - bin/**/*
+    - config/**/*
+    - vendor/**/*
+    - tmp/**/*
+    - app/helpers/**/*
+    - app/controllers/admins/**/*
+    - app/policies/**/*
+    - app/models/app_statistic.rb
+    - app/models/id_check_request.rb
+    - app/lib/agora_dynamic_key/**
+    - app/lib/agora_dynamic_key.rb
+    - node_modules/**/*
+    - log/**/*
+    - storage/**/*
+
+# Disable overly strict cops
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/BlockLength:
+  Max: 100
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/NumericLiterals:
+  MinDigits: 6
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+  MinDigits: 6
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Rails/FilePath:
+  EnforcedStyle: arguments
