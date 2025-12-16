@@ -4,7 +4,9 @@ require 'rails_helper'
 
 RSpec.describe Api::PropertiesController, type: :controller do
   describe 'POST /api/properties/import', :perform_enqueued do
-    let(:file_path) { Rails.root.join('spec', 'fixtures', 'files', 'properties.csv') }
+    let(:file_path) do
+      Rails.root.join('spec', 'fixtures', 'files', 'properties.csv')
+    end
     let(:uploaded_file) { fixture_file_upload(file_path, 'text/csv') }
 
     subject { post :import, params: { file: uploaded_file } }

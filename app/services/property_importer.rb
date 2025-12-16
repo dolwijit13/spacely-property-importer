@@ -30,12 +30,12 @@ class PropertyImporter
 
   def parse_row(row)
     {
-      unique_id: row['ユニークID'].blank? ? nil : row['ユニークID'].to_i,
+      unique_id: row['ユニークID'].presence&.to_i,
       name: row['物件名'],
-      room_number: row['部屋番号'].blank? ? nil : row['部屋番号'].to_i,
+      room_number: row['部屋番号'].presence&.to_i,
       address: row['住所'],
-      rent: row['賃料'].blank? ? nil : row['賃料'].to_i,
-      size: row['広さ'].blank? ? nil : row['広さ'].to_f,
+      rent: row['賃料'].presence&.to_i,
+      size: row['広さ'].presence&.to_f,
       property_type: row['建物の種類']
     }
   end

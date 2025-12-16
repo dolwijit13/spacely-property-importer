@@ -3,7 +3,7 @@
 module Api
   class PropertiesController < ApplicationController
     def import
-      storage_path = File.join(Rails.root, 'tmp', 'uploads', "#{SecureRandom.uuid}_#{params[:file].original_filename}")
+      storage_path = Rails.root.join('tmp', 'uploads', "#{SecureRandom.uuid}_#{params[:file].original_filename}").to_s
       FileUtils.mkdir_p(File.dirname(storage_path))
       File.open(storage_path, 'wb') do |file|
         file.write(params[:file].read)
