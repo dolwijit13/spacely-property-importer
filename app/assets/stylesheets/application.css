@@ -29,6 +29,36 @@ body {
   background-color: var(--light-color);
 }
 
+.pagination {
+  margin: 4px auto;
+  width: 50%;
+  min-height: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    text-align: center;
+    width: 50px;
+
+    :hover {
+      background-color: var(--light-color-2);
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: var(--text-dark);
+    }
+  }
+}
+
+.current {
+  color: var(--primary-color);
+}
+
 .navbar {
   padding: 1vh 2vw;
   display: flex;
@@ -51,11 +81,22 @@ body {
   padding: 1vh 5vw;
 }
 
+.property-list-info {
+  display: flex;
+  align-items: baseline;
+}
+
 .property-list-title {
   color: var(--text-primary);
   margin-bottom: 20px;
   font-size: 2rem;
   font-weight: 600;
+}
+
+.property-list-count {
+  margin-left: 20px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
 .property-list-empty {
@@ -139,19 +180,24 @@ body {
   letter-spacing: 0.5px;
 }
 
-.property-type.apartment {
+.property-type-apartment {
   background-color: var(--apartment-bg);
   color: var(--apartment-text);
 }
 
-.property-type.house {
+.property-type-house {
   background-color: var(--house-bg);
   color: var(--house-text);
 }
 
-.property-type.condo {
+.property-type-condo {
   background-color: var(--condo-bg);
   color: var(--condo-text);
+}
+
+.property-type-other {
+  background-color: var(--light-color-2);
+  color: var(--text-secondary);
 }
 
 .upload-button-input {
