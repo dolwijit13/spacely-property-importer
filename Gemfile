@@ -44,6 +44,7 @@ gem "connection_pool", "<3.0"
 gem "sassc-rails"
 gem 'redis', '~> 5.4', '>= 5.4.1'
 gem 'sidekiq'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
