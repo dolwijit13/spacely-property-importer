@@ -77,6 +77,18 @@ Run the test suite:
 bundle exec rspec
 ```
 
+## Continuous Integration
+
+This project uses GitHub Actions for automated testing and code quality checks. The CI pipeline runs on:
+- Every push to any branch
+- Every pull request targeting the `main` branch
+
+### CI Pipeline Features:
+- **Automated Testing**: Runs the full RSpec test suite
+- **Code Linting**: Executes RuboCop for code style and quality checks
+
+The workflow file is located at `.github/workflows/rubyonrails.yml` and ensures code quality and functionality before merging changes.
+
 ## Future Improvements
 
 The following enhancements are planned to improve the application's functionality and user experience:
