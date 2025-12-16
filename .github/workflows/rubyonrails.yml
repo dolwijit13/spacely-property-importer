@@ -7,7 +7,7 @@
 name: "Ruby on Rails CI"
 on:
   push:
-    branches: [ "main" ]
+    # branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 jobs:
@@ -43,6 +43,6 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bundle exec rspec
-      
+
       - name: Run linter
         run: bundle exec rubocop
