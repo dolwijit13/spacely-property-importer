@@ -16,3 +16,8 @@ body {
     font-weight: 400;
   }
 }
+
+.navbar-text {
+  color: #555;
+  text-decoration: none;
+}
