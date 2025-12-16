@@ -184,19 +184,24 @@ body {
   letter-spacing: 0.5px;
 }
 
-.property-type.apartment {
+.property-type-apartment {
   background-color: var(--apartment-bg);
   color: var(--apartment-text);
 }
 
-.property-type.house {
+.property-type-house {
   background-color: var(--house-bg);
   color: var(--house-text);
 }
 
-.property-type.condo {
+.property-type-condo {
   background-color: var(--condo-bg);
   color: var(--condo-text);
+}
+
+.property-type-other {
+  background-color: var(--light-color-2);
+  color: var(--text-secondary);
 }
 
 .upload-button-input {

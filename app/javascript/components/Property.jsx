@@ -10,6 +10,19 @@ const Property = (props) => {
     return rent
   }
 
+  const propertyTypeClass = (property_type) => {
+    switch (property_type.toLowerCase()) {
+      case 'アパート':
+        return 'property-type-apartment'
+      case '一戸建て':
+        return 'property-type-house'
+      case 'マンション':
+        return 'property-type-condo'
+      default:
+        return 'property-type-other'
+    }
+  }
+
   return (
     <tr className="property-row">
       <td className="unique-id">{unique_id}</td>
@@ -19,7 +32,7 @@ const Property = (props) => {
       <td className="rent">{formatRent(rent)}</td>
       <td className="size">{size}</td>
       <td>
-        <div className={`property-type ${property_type}`}>
+        <div className={`${propertyTypeClass(property_type)} property-type`}>
           {property_type}
         </div>
       </td>
