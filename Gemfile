@@ -41,12 +41,12 @@ gem 'shakapacker', '= 9.4'
 # Currently there is a bug on connection_pool 3.x with Rails 7.1 ref https://github.com/mperham/connection_pool/issues/210
 gem 'connection_pool', '<3.0'
 
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'redis', '~> 5.4', '>= 5.4.1'
 gem 'rubocop', '~> 1.81', '>= 1.81.7'
 gem 'rubocop-rails', '~> 2.34', '>= 2.34.2'
 gem 'sassc-rails'
 gem 'sidekiq'
-gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
