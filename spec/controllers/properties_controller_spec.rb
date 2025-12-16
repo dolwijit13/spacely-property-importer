@@ -25,5 +25,13 @@ RSpec.describe PropertiesController, type: :controller do
 
       expect(response).to render_template(:index)
     end
+
+    it 'paginates the properties' do
+      create_list(:property, 15)
+
+      get :index, params: { page: 2 }
+
+      expect(assigns(:properties).size).to eq(5)
+    end
   end
 end

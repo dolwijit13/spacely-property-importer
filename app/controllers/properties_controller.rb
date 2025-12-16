@@ -2,6 +2,6 @@
 
 class PropertiesController < ApplicationController
   def index
-    @properties = Property.all
+    @properties = Property.page(params[:page]).per(10)
   end
 end
