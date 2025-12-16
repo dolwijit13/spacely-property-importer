@@ -26,7 +26,7 @@ const UploadButton = () => {
         data: formData,
         headers: headers
       }).then(() => {
-        alert('File uploaded successfully')
+        alert('CSV file uploaded successfully! Properties are being imported in the background.')
         window.location.reload()
       }).catch(() => {
         alert('Error uploading file')
