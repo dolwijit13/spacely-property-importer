@@ -8,4 +8,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  root 'properties#index'
+  resources :properties, only: [:index]
 end
