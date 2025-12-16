@@ -5,21 +5,21 @@ const PropertyList = (props) => {
   const { properties } = props
 
   const headers = [
-    "Unique ID",
-    "Name",
-    "Address",
-    "Rooms",
-    "Rent",
-    "Size",
-    "Type",
-    "Created At"
+    "ユニークID",
+    "物件名",
+    "住所",
+    "部屋番号",
+    "賃料",
+    "広さ",
+    "建物の種類",
+    "作成日時"
   ]
 
   if (!properties || properties.length === 0) {
     return (
-      <div>
-        <h1>Property List</h1>
-        <div>
+      <div className="property-list-container">
+        <h1 className="property-list-title">Property List</h1>
+        <div className="property-list-empty">
           <h3>No Properties Found</h3>
           <p>There are currently no properties to display. Import some properties to get started.</p>
         </div>
@@ -28,10 +28,10 @@ const PropertyList = (props) => {
   }
 
   return (
-    <div>
-      <h1>Property List</h1>
-      <table>
-        <thead>
+    <div className="property-list-container">
+      <h1 className="property-list-title">Property List</h1>
+      <table className="property-table">
+        <thead className="property-table-header">
           <tr>
             {headers.map((header) => (
               <th key={header}>{header}</th>
