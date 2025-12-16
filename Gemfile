@@ -35,6 +35,12 @@ gem "bootsnap", require: false
 gem 'mysql2', '~> 0.5.7'
 gem 'activerecord-import', '~> 2.2'
 
+gem "shakapacker", "= 9.4"
+gem "react-rails", "= 3.2"
+
+# Currently there is a bug on connection_pool 3.x with Rails 7.1 ref https://github.com/mperham/connection_pool/issues/210
+gem "connection_pool", "<3.0"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
