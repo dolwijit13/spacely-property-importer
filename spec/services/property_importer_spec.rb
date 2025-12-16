@@ -55,8 +55,7 @@ RSpec.describe PropertyImporter, type: :service do
     context 'with invalid CSV data' do
       context 'when required headers are missing' do
         let(:invalid_csv_file_path) do
-          Rails.root.join('spec', 'fixtures', 'files', 'properties_without_name.csv', 'properties_without_name.csv', 'files', 'properties_without_name.csv',
-                          'properties_without_name.csv')
+          Rails.root.join('spec', 'fixtures', 'files', 'properties_without_name.csv')
         end
         let(:invalid_csv_file) { fixture_file_upload(invalid_csv_file_path, 'text/csv') }
 
@@ -69,8 +68,7 @@ RSpec.describe PropertyImporter, type: :service do
 
       context 'when required fields are missing' do
         let(:invalid_csv_file_path) do
-          Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_name.csv', 'properties_with_null_name.csv', 'files', 'properties_with_null_name.csv',
-                          'properties_with_null_name.csv')
+          Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_name.csv')
         end
         let(:invalid_csv_file) { fixture_file_upload(invalid_csv_file_path, 'text/csv') }
 
@@ -84,8 +82,7 @@ RSpec.describe PropertyImporter, type: :service do
 
       context 'when the room number is missing for non house properties' do
         let(:invalid_csv_file_path) do
-          Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_room_number.csv', 'properties_with_null_room_number.csv',
-                          'files', 'properties_with_null_room_number.csv', 'properties_with_null_room_number.csv')
+          Rails.root.join('spec', 'fixtures', 'files', 'properties_with_null_room_number.csv')
         end
         let(:invalid_csv_file) { fixture_file_upload(invalid_csv_file_path, 'text/csv') }
 
